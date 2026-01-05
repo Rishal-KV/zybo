@@ -24,7 +24,9 @@ const ShopLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <>
             <NavBar />
-            {children}
+            <div className="pt-20">
+                {children}
+            </div>
             <Footer />
         </>
     );

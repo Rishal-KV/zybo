@@ -14,7 +14,7 @@ const NavBar = () => {
             setIsAuthenticated(true);
     }, []);
     return (
-        <div className="w-full bg-[var(--secondary-color)] sticky top-0 z-50">
+        <div className="w-full bg-[var(--secondary-color)] fixed top-0 z-50">
             <div className="container mx-auto py-2 px-4">
                 <div className="flex items-center justify-between">
                     <Link href="/">

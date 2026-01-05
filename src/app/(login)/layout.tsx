@@ -25,7 +25,7 @@ const LoginLayout = ({ children }: { children: React.ReactNode }) => {
     if (checkingAuth) return null;
 
     return (
-        <div>
+        <div className="pt-20">
             <NavBar />
             {children}
             <Footer />
