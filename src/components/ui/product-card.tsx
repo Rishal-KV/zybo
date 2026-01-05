@@ -82,11 +82,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
         product.product_images[0]?.product_image || ""
     );
 
-    const [canHover, setCanHover] = useState(true);
+    const [canHover, setCanHover] = useState(false);
 
     useEffect(() => {
         if (typeof window !== "undefined") {
-            setCanHover(window.matchMedia("(hover: hover)").matches);
+            const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            setCanHover(!isTouch && window.innerWidth >= 768);
         }
     }, []);
 
@@ -225,7 +226,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             {/* IMAGE */}
             <div
                 ref={imageRef}
-                className="w-full h-[240px] sm:h-[250px] md:h-[260px] flex items-center justify-center"
+                className="w-full h-[160px] sm:h-[250px] md:h-[250px] flex items-center justify-center"
             >
                 <Image
                     src={currentImage || "/placeholder.png"}
