@@ -1,9 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zybo - E-commerce Platform
 
-## Getting Started
+A modern e-commerce application built with Next.js, featuring user authentication, product browsing, shopping cart, and order management.
 
-First, run the development server:
+## Tech Stack
 
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS with custom CSS variables
+- **Animations**: GSAP for smooth interactions
+- **State Management**: Zustand for global state
+- **HTTP Client**: Axios for API requests
+- **UI Components**: Custom components with shadcn/ui patterns
+- **Icons**: Custom SVG icons
+- **Fonts**: Inter font family
+- **Notifications**: Sonner for toast notifications
+
+## Tech Decisions
+
+### Why Next.js?
+- Server-side rendering for better SEO and performance
+- App Router for modern routing and layouts
+- Built-in optimization for images and fonts
+- Easy deployment to Vercel
+
+### Why TypeScript?
+- Type safety to catch errors at compile time
+- Better developer experience with IntelliSense
+- Easier refactoring and maintenance
+
+### Why Tailwind CSS?
+- Utility-first approach for rapid UI development
+- Consistent design system
+- Responsive design out of the box
+- Small bundle size with purging
+
+### Why GSAP?
+- High-performance animations
+- Smooth hover effects for desktop interactions
+- Conditional animations based on device capabilities
+
+### Why Zustand?
+- Lightweight state management
+- Simple API without boilerplate
+- TypeScript support out of the box
+
+## Setup Instructions
+
+### Prerequisites
+- Node.js 18+
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd zybo
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+3. Set up environment variables:
+Create a `.env.local` file in the root directory with:
+```env
+NEXT_PUBLIC_API_URL=your_api_url
+# Add other required environment variables
+```
+
+4. Run the development server:
 ```bash
 npm run dev
 # or
@@ -14,23 +87,45 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+zybo/
+├── src/
+│   ├── app/                 # Next.js app directory
+│   │   ├── (login)/        # Login route group
+│   │   ├── (shop)/         # Shop route group
+│   │   ├── (profile)/      # Profile route group
+│   │   ├── globals.css     # Global styles
+│   │   ├── layout.tsx      # Root layout
+│   │   └── page.tsx        # Home page
+│   ├── components/         # Reusable components
+│   │   ├── common/         # Shared components (nav, footer)
+│   │   ├── pages/          # Page-specific components
+│   │   └── ui/             # UI components
+│   ├── hooks/              # Custom hooks
+│   ├── lib/                # Utilities and configurations
+│   └── store/              # Zustand stores
+├── public/                 # Static assets
+└── package.json
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Key Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- User authentication (login/register)
+- Product browsing with variations (size, color)
+- Shopping cart and order management
+- Responsive design for mobile and desktop
+- Hover effects on desktop, touch-friendly on mobile
+- Order success flow
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
