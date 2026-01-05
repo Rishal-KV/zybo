@@ -45,7 +45,7 @@ const OrderSuccess = () => {
     if (!latestOrder) return null;
 
     return (
-        <div className="min-h-screen w-full flex items-center justify-center px-4">
+        <div className="min-h-screen w-full bg-[#171717] flex items-center justify-center px-4">
             <div className="w-full max-w-md text-center text-white">
 
                 <div className="flex justify-center mb-6">
@@ -55,6 +55,10 @@ const OrderSuccess = () => {
                 <h1 className="text-2xl font-semibold mb-2">
                     Successfully Ordered!
                 </h1>
+
+                <p className="text-sm text-gray-400 mb-4">
+                    Order ID: {latestOrder.orderId}
+                </p>
 
                 <p className="text-sm text-gray-400 mb-8">
                     {new Date(latestOrder.purchasedAt).toLocaleString("en-IN", {

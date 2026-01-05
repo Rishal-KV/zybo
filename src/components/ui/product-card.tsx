@@ -65,6 +65,7 @@ const parseProductName = (name: string) => {
 
 const ProductCard = ({ product }: ProductCardProps) => {
     const router = useRouter();
+    console.log(product, "hello");
 
     const containerRef = useRef<HTMLDivElement>(null);
     const imageRef = useRef<HTMLDivElement>(null);
@@ -147,6 +148,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         }
 
         const { order } = response;
+        console.log({order})
 
         const items = order.order_details.map((item: any) => {
             const { productName, color, size } = parseProductName(item.product_name);
@@ -223,7 +225,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             {/* IMAGE */}
             <div
                 ref={imageRef}
-                className="w-full h-[220px] sm:h-[230px] md:h-[240px] flex items-center justify-center"
+                className="w-full h-[240px] sm:h-[250px] md:h-[260px] flex items-center justify-center"
             >
                 <Image
                     src={currentImage || "/placeholder.png"}
@@ -257,9 +259,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
                                 <button
                                     key={size}
                                     onClick={() => handleSizeChange(size)}
+                                    disabled={!selectedColor}
                                     className={`w-6 h-6 md:w-7 md:h-7 rounded-[4px] text-[11px] md:text-sm font-semibold transition ${selectedSize === size
                                         ? "bg-[#372224] text-white"
-                                        : "bg-gray-100 text-gray-700"
+                                        : selectedColor
+                                        ? "bg-gray-100 text-gray-700"
+                                        : "bg-gray-400 text-gray-500 cursor-not-allowed"
                                         }`}
                                 >
                                     {size}

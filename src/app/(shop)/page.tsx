@@ -52,6 +52,7 @@ async function getNewProducts(): Promise<Product[]> {
 
 const Page = async () => {
     const products = await getNewProducts();
+    
 
     return (
         <div className="bg-[#171717]">
